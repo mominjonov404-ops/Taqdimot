@@ -1,1 +1,1 @@
-worker: python taqdimot_bot.py
+web: python taqdimot_bot_xavfsiz.py
