@@ -35,7 +35,7 @@ from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 #                               SOZLAMALAR
 # ============================================================================
 BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
-ADMIN_IDS = [123456789]                      # admin Telegram ID lari (@userinfobot dan oling)
+ADMIN_IDS = [7183658143]                      # admin Telegram ID lari (@userinfobot dan oling)
 
 # Matn yaratish uchun Gemini API kaliti (bepul: https://aistudio.google.com/apikey)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
