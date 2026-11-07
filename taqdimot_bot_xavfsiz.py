@@ -855,6 +855,21 @@ def broadcast(admin_chat, ids, text):
 
 
 # ----------------------------------------------------------------------------
+def run_health_server():
+    from http.server import HTTPServer, BaseHTTPRequestHandler
+    class HealthHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK")
+        def log_message(self, *args):
+            pass
+    port = int(os.getenv("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), HealthHandler)
+    server.serve_forever()
+
 if __name__ == "__main__":
     log.info("Bot ishga tushdi")
+    t = threading.Thread(target=run_health_server, daemon=True)
+    t.start()
     bot.infinity_polling(skip_pending=True, timeout=30, long_polling_timeout=30)
